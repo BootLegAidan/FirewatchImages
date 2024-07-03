@@ -1,0 +1,49 @@
+:root {
+        --main-color: #f5f3e0;
+        --secondary-color: #b7410e;
+        --text-color: #3f2b27;
+        --text-highlight-color: orange;
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    padding-bottom: 10px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container input {
+    margin-bottom: 10px;
+}
+
+body {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    font-size: 22px;
+}
+
+button {
+    outline: 0;
+    border-radius: 5px;
+    border: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    background-color: var(--secondary-color);
+    width: 125px;
+}
+
+a {
+    color: var(--text-color);
+    /* text-decoration: none; */
+}
+
+.highlight {
+    color: var(--secondary-color)
+}

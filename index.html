@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firewatch Random Images</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="input-wrapper">
+        <div class="input-container">
+            <input type="number" id="first" onchange="update()">
+            <label for="first" id="firstLabel"></label>
+            <button onclick="randomize(1)">Randomize</button>
+        </div>
+        <div class="input-container">
+            <input type="number" id="second" onchange="update()">
+            <label for="second" id="secondLabel"></label>
+            <button onclick="randomize(2)">Randomize</button>
+        </div>
+        <div class="input-container">
+            <input type="number" id="third" onchange="update()">
+            <label for="third" id="thirdLabel"></label>
+            <button onclick="randomize(3)">Randomize</button>
+        </div>
+    </div>
+    <button onclick="randomize(1);randomize(2);randomize(3)">Randomize All</button>
+    <button onclick="go()">Go</button>
+    <p>Below are the valid links I have personally found.
+        <br>A couple of them (probably) used <a href="https://github.com/spinda/node-firewatch.camera">this</a> tool to upload custom images to the servers, if they do, I will label them as "custom". If you want use this yourself, please do not use it irresponsibly.
+        <br>Some will be labeled as "the spot", which refers to pictures taken around <a href="https://firewatch.camera/LostLincolnHill/1">this</a> area. For some reason, a lot of pictures are taken here and they are very very similar. There are a few other "spots", such as the <a href="https://firewatch.camera/SouthLincolnHill/6">large, pointy tree</a> near where you get the new radio.
+        <br>Other notes will be added if I see fit.
+    </p>
+    <div id="valids"></div>
+    <button onclick="randomValid()">Random Valid Link</button>
+</body>
+</html>

@@ -5,7 +5,8 @@ let firstList = [
         'Major',    'Knotty',   'Gusty',
         'Curvy',    'Fine',     'Hallow',
         'Soft',     'Bright',   'Minor',
-        'Orange',   'Ancient'
+        'Orange',   'Ancient',  'Deserted',
+        'Abandoned','Crooked'
     ],
     secondList = [
         'TwoForks',     'Bend',     'Cambridge',
@@ -14,15 +15,17 @@ let firstList = [
         'Francisco',    'Bluestone','Redwood',
         'Yellowstone',  'Wyoming',  'Acadia',
         'Butte',        'Glacier',  'HotSpring',
-        'Hamilton'
-    ],
+        'Hamilton',     'Keween',   'Ozark'
+    ], // Biscanye seems to be one (seen in a video by LGR), but I couldn't find anything that used it, so it was removed from the list
     thirdList = [
         'Crossing', 'Pond',     'Rest',
         'Path',     'Basin',    'Mesa',
         'Drive',    'Hill',     'Abyss',
         'Retreat',  'Pass',     'Terrace',
         'Cove',     'Sound',    'Vista',
-        'Camp',     'Creek',    'Oaks'
+        'Camp',     'Creek',    'Oaks',
+        'Chasm',    'Beck',     'Valley',
+        'Lake',     'Town'
     ]
 
 // Remove duplicates from above lists
@@ -75,13 +78,29 @@ function randomize(x) { // Randomizes the input
 
 // VALID SHIT
 let validLinks = [
+    'AbandonedKeweenawLake',
+    'AbandonedOzarkCove',
+
+    'AncientBendOaks',
     'AncientGlacierCrossing',
     'AncientHamiltonOaks',
 
     'BrightButteBend',
+    'BrightGlacierBeck',
+    'BrightHamiltonTown',
+    'BrightRedwoodTerrace',
+
+    'CrookedOzarkTown',
 
     'CurvyBadlandsRetreat',
+    'CurvyFranciscoBasin',
+    'CurvyGlacierValley',
     'CurvyYellowstoneCove',
+
+    // 'DesertedBiscanyeBeck', From a video by LGR. Doesn't seem to link to anything?
+    'DesertedButteCamp',
+    'DesertedLincolnChasm',
+    'DesertedTwoForksCrossing',
 
     'DustyButteCove',
     'DustyGlacierBasin',
@@ -94,6 +113,8 @@ let validLinks = [
     'EvergreenBendSound',
     'EvergreenGlacierRetreat',
     'EvergreenHamiltonRest',
+    'EvergreenOzarkSound',
+    'EvergreenWyomingPass',
 
     'FineAcadiaTerrace',
     'FineBadlandsCove',
@@ -101,13 +122,19 @@ let validLinks = [
     'FineHamiltonCreek',
     'FineWyomingSound',
 
+    'GiantAcadiaBasin',
+    'GiantBadlandsChasm',
+    'GiantFranciscoHill',
     'GiantTwoForksCove',
 
     'GustyHotSpringVista',
+    'GustyJoshuaTown',
     'GustyRedwoodTerrace',
     'GustyTwoForksCamp',
 
     'HallowBadlandsVista',
+    'HallowHotSpringCreek',
+    'HallowYellowstoneCrossing',
 
     'KnottyBluestonePass',
 
@@ -115,10 +142,13 @@ let validLinks = [
     'LostBurrAbyss',
     'LostFranciscoTerrace',
     'LostLincolnHill',
+    'LostTwoForksPass',
 
+    'MajorBendCamp',
     'MajorBluestoneHill',
     'MajorFranciscoRetreat',
     'MajorFranciscoCove',
+    'MajorJoshuaLake',
     'MajorJoshuaPond',
     'MajorRedwoodCove',
     'MajorTwoForksCrossing',
@@ -126,9 +156,14 @@ let validLinks = [
     'MinorBasinTerrace',
     'MinorBurrDrive',
     'MinorGlacierCreek',
+    'MinorHamiltonPass',
+    'MinorRedwoodPond',
 
     'OpenBasinPath',
     'OpenBendRest',
+    'OpenHamiltonVista',
+    'OpenHotSpringMesa',
+    'OpenJoshuaMesa',
     'OpenWyomingAbyss',
 
     'OrangeAcadiaCrossing',
@@ -139,13 +174,18 @@ let validLinks = [
     'RedTwoForksPath',
 
     'SoftAcadiaCamp',
+    'SoftHotSpringPond',
 
     'SouthBadlandsCamp',
+    'SouthBurrLake',
     'SouthJoshuaMesa',
     'SouthLincolnHill',
+    'SouthTwoForksCrossing',
+    'SouthWyomingRetreat',
 
     'WestAcadiaBasin',
     'WestBadlandsPond',
+    'WestBendCreek',
     'WestFranciscoCrossing',
 
     'WhiteAcadiaCrossing',
@@ -158,7 +198,9 @@ for (let i of validLinks) {
     if (i == 'EvergreenBasinDrive' || i == 'BrightButteBend') { // custom
         info += '(custom) '
     }
-    if (i == 'OpenBasinPath' || i == 'WhiteYellowstoneBasin' || i == 'AncientHamiltonOaks') { // Empty
+    if (i == 'OpenBasinPath' || i == 'WhiteYellowstoneBasin' || i == 'AncientHamiltonOaks' // Empty
+        || i == 'WestBendCreek' || i == 'GiantFranciscoHill'
+    ) {
         info += '(empty) '
     }
     if (i == 'EvergreenBasinBasin') { // weird or funny names
@@ -170,7 +212,10 @@ for (let i of validLinks) {
         || i == 'MajorJoshuaPond' || i == 'MajorTwoForksCrossing' || i == 'MinorGlacierCreek' || i == 'OpenWyomingAbyss'
         || i == 'OrangeHotSpringCreek' || i == 'SoftAcadiaCamp' || i == 'WestBadlandsPond' || i == 'OrangeAcadiaCrossing'
         || i == 'DustyGlacierBasin' || i == 'OpenBasinRests' || i == 'MinorBasinTerrace' || i == 'FineWyomingSound'
-        || i == 'FineHamiltonCreek'
+        || i == 'FineHamiltonCreek' || i == 'BrightRedwoodTerrace' || i == 'SoftHotSpringPond' || i == 'SouthTwoForksCrossing'
+        || i == 'MajorBendCamp' || i == 'MinorHamiltonPass' || i == 'CurvyFranciscoBasin' || i == 'GiantAcadiaBasin'
+        || i == 'AbandonedKeweenawLake' || i == 'CrookedOzarkTown' || i == 'MajorJoshuaLake' || i == 'AbandonedOzarkCove'
+        || i == 'LostTwoForksPass' || i == 'OpenHamiltonVista' || i == 'EvergreenOzarkSound'
     ) {
         info += '(the spot) '
     }
